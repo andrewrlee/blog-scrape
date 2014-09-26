@@ -23,7 +23,7 @@
       "<h1>"
       (:title post)
       "</h1>"
-      (apply str (map #(str "<p>" % "</p>") (:content post)))))
+      (clojure.string/join (map #(str "<p>" % "</p>") (:content post)))))
 
   (def posts 
     (->
