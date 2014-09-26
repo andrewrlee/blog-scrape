@@ -4,7 +4,6 @@
              [clojure.string :only (join)]))
   
   (defn- extract-content [post]
-    "Return a map containing title and a seq of the paragraphs as text"
     (let [title       (html/text (first (html/select [post] [:h2])))
           content (map html/text        (html/select [post] [:p]))]
       {:title title, :content content}))
