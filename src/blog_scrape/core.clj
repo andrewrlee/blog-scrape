@@ -33,7 +33,7 @@
     (->>
       posts
       (reverse)
-      (map #(->> % extract-content convert-to-html))
+      (map #(comp convert-to-html extract-content))
       (clojure.string/join)
       (wrap-as-doc)
       (spit "index.html")))
